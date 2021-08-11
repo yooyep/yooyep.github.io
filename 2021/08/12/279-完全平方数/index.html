@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>377. 组合总和 Ⅳ - yooyep&#39;s space</title>
+  <title>279. 完全平方数 - yooyep&#39;s space</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="377. 组合总和 Ⅳ">
+            <span class="h2" id="subtitle" title="279. 完全平方数">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-08-10 23:46" pubdate>
-        2021年8月10日 晚上
+      <time datetime="2021-08-12 00:09" pubdate>
+        2021年8月12日 凌晨
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      238 字
+      217 字
     </span>
   
 
@@ -225,16 +225,13 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">377. 组合总和 Ⅳ</h1>
+            <h1 style="display: none">279. 完全平方数</h1>
             
             <div class="markdown-body">
-              <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combination-sum-iv/">377. 组合总和 Ⅳ - 力扣（LeetCode）</a></p>
-<p><img src="/2021/08/10/377-%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C-%E2%85%A3/image-20210810234726503.png" srcset="/img/loading.gif" lazyload alt="image-20210810234726503"></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>完全背包问题，排列数</p>
-<p>​    个数可以不限使⽤，说明这是⼀个完全背包。<br>​    得到的集合是排列，说明需要考虑元素之间的顺序。  </p>
-<p><strong>如果求组合数就是外层for循环遍历物品，内层for遍历背包。</strong><br><strong>如果求排列数就是外层for遍历背包，内层for循环遍历物品。</strong>  </p>
-<p>如果把遍历nums（物品）放在外循环，遍历target的作为内循环的话，举⼀个例⼦：计算dp[4]的时<br>候，结果集只有 {1,3} 这样的集合，不会有{3,1}这样的集合，<strong>因为nums遍历放在外层， 3只能出现在1后</strong><br><strong>⾯！</strong></p>
-<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">combinationSum4</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span>[] dp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[target + <span class="hljs-number">1</span>];<br>    dp[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; target+<span class="hljs-number">1</span>; i++) &#123; <span class="hljs-comment">//遍历背包容量</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; nums.length; j++) &#123;<br>            <span class="hljs-keyword">if</span> (i &gt;= nums[j])<br>                dp[i] += dp[i-nums[j]];<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> dp[target];<br>&#125;<br></code></pre></td></tr></table></figure>
+              <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/perfect-squares/">279. 完全平方数 - 力扣（LeetCode）</a></p>
+<p><img src="/2021/08/12/279-%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/image-20210812001027774.png" srcset="/img/loading.gif" lazyload alt="image-20210812001027774"></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-number">1</span>.<span class="hljs-keyword">dp</span>定义，<span class="hljs-keyword">dp</span>[i] 组成i的最少数量<br><span class="hljs-number">2</span>.递推公式，<span class="hljs-keyword">dp</span>[<span class="hljs-keyword">j</span>]有两种方式，添加一个平方数 或者 不添加<br>    <span class="hljs-keyword">dp</span>[<span class="hljs-keyword">j</span>] = <span class="hljs-built_in">min</span>(<span class="hljs-keyword">dp</span>[<span class="hljs-keyword">j</span>], <span class="hljs-keyword">dp</span>[<span class="hljs-keyword">j</span> - i*i] + <span class="hljs-number">1</span>)<br><span class="hljs-number">3</span>.初始化，<span class="hljs-keyword">dp</span>[<span class="hljs-number">0</span>]应该为<span class="hljs-number">0</span>，因为<span class="hljs-keyword">dp</span>[<span class="hljs-number">1</span>]是<span class="hljs-number">1</span>；非<span class="hljs-number">0</span>的位置，初始化为最大值<br><span class="hljs-number">4</span>.遍历顺序，完全背包问题，因为求最小数量，不管是排列还是组合都可以<br>    容量为n，物品为 <span class="hljs-number">1</span> <span class="hljs-number">4</span> <span class="hljs-number">9</span> …<br><span class="hljs-number">5</span>.举例<br></code></pre></td></tr></table></figure>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">numSquares</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span>[] dp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n + <span class="hljs-number">1</span>];<br>    <span class="hljs-comment">// 要将非0的位置，初始化为最大值</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; n+<span class="hljs-number">1</span>; i++) &#123;<br>        dp[i] = Integer.MAX_VALUE;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; n+<span class="hljs-number">1</span>; i++) &#123; <span class="hljs-comment">//遍历背包</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j * j &lt;= i; j++) &#123; <span class="hljs-comment">//遍历物品</span><br>            dp[i] = Math.min(dp[i], dp[i-j*j]+<span class="hljs-number">1</span>);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> dp[n];<br>&#125;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -271,18 +268,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/08/11/70-%E7%88%AC%E6%A5%BC%E6%A2%AF/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">70. 爬楼梯</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/08/10/518-%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2-II/">
-                        <span class="hidden-mobile">518. 零钱兑换 II</span>
+                      <a href="/2021/08/11/70-%E7%88%AC%E6%A5%BC%E6%A2%AF/">
+                        <span class="hidden-mobile">70. 爬楼梯</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

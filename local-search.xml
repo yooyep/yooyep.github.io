@@ -4,6 +4,60 @@
   
   
   <entry>
+    <title>279. 完全平方数</title>
+    <link href="/2021/08/12/279-%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/"/>
+    <url>/2021/08/12/279-%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/</url>
+    
+    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a href="https://leetcode-cn.com/problems/perfect-squares/">279. 完全平方数 - 力扣（LeetCode）</a></p><p><img src="/2021/08/12/279-%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/image-20210812001027774.png" alt="image-20210812001027774"></p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-number">1</span>.<span class="hljs-keyword">dp</span>定义，<span class="hljs-keyword">dp</span>[i] 组成i的最少数量<br><span class="hljs-number">2</span>.递推公式，<span class="hljs-keyword">dp</span>[<span class="hljs-keyword">j</span>]有两种方式，添加一个平方数 或者 不添加<br>    <span class="hljs-keyword">dp</span>[<span class="hljs-keyword">j</span>] = <span class="hljs-built_in">min</span>(<span class="hljs-keyword">dp</span>[<span class="hljs-keyword">j</span>], <span class="hljs-keyword">dp</span>[<span class="hljs-keyword">j</span> - i*i] + <span class="hljs-number">1</span>)<br><span class="hljs-number">3</span>.初始化，<span class="hljs-keyword">dp</span>[<span class="hljs-number">0</span>]应该为<span class="hljs-number">0</span>，因为<span class="hljs-keyword">dp</span>[<span class="hljs-number">1</span>]是<span class="hljs-number">1</span>；非<span class="hljs-number">0</span>的位置，初始化为最大值<br><span class="hljs-number">4</span>.遍历顺序，完全背包问题，因为求最小数量，不管是排列还是组合都可以<br>    容量为n，物品为 <span class="hljs-number">1</span> <span class="hljs-number">4</span> <span class="hljs-number">9</span> …<br><span class="hljs-number">5</span>.举例<br></code></pre></td></tr></table></figure><h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">numSquares</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span>[] dp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n + <span class="hljs-number">1</span>];<br>    <span class="hljs-comment">// 要将非0的位置，初始化为最大值</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; n+<span class="hljs-number">1</span>; i++) &#123;<br>        dp[i] = Integer.MAX_VALUE;<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; n+<span class="hljs-number">1</span>; i++) &#123; <span class="hljs-comment">//遍历背包</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j * j &lt;= i; j++) &#123; <span class="hljs-comment">//遍历物品</span><br>            dp[i] = Math.min(dp[i], dp[i-j*j]+<span class="hljs-number">1</span>);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> dp[n];<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>刷题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>动态规划</tag>
+      
+      <tag>背包</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>70. 爬楼梯</title>
+    <link href="/2021/08/11/70-%E7%88%AC%E6%A5%BC%E6%A2%AF/"/>
+    <url>/2021/08/11/70-%E7%88%AC%E6%A5%BC%E6%A2%AF/</url>
+    
+    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a href="https://leetcode-cn.com/problems/climbing-stairs/">70. 爬楼梯 - 力扣（LeetCode）</a></p><p><img src="/2021/08/11/70-%E7%88%AC%E6%A5%BC%E6%A2%AF/image-20210811235133640.png" alt="image-20210811235133640"></p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h3 id="递推公式"><a href="#递推公式" class="headerlink" title="递推公式"></a>递推公式</h3><p>f(n) = f(n-1) + f(n-2)</p><h3 id="完全背包解法"><a href="#完全背包解法" class="headerlink" title="完全背包解法"></a>完全背包解法</h3><p>完全背包的写法：<br>i级台阶可以理解为容量为i的背包 总金额，跳1级、跳2级可以理解为硬币金额</p><p>1.dp数组初始化：dp[i] i级台阶，有dp[i]种方法<br>2.递推公式，到达i级台阶，可以dp[i-1]、dp[i-2]<br>    dp[i] += dp[i-nums[j]]<br>3.初始化，dp[0]一定要是1，如果dp[0]是0的话，其他数值都是0了。<br>4.确定遍历顺序，<strong>排列问题</strong>，先跳1层台阶再跳2层台阶 和 先跳2层再跳1层 是两种<br>    因此先遍历背包target，再遍历物品nums[i]（内循环）<br>5.举例</p><h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><h3 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">climbStairs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span>(n==<span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br><br>    <span class="hljs-keyword">int</span>[] dp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n + <span class="hljs-number">1</span>];<br>    dp[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>    dp[<span class="hljs-number">2</span>] = <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">3</span>; i &lt; dp.length; i++) &#123;<br>        dp[i] = dp[i-<span class="hljs-number">1</span>] + dp[i-<span class="hljs-number">2</span>];<br>    &#125;<br>    <span class="hljs-keyword">return</span> dp[n];<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">climbStairs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span>[] dp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n+<span class="hljs-number">1</span>];<br>    dp[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">int</span>[] nums = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>&#125;;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; nums.length; j++) &#123;<br>            <span class="hljs-comment">// 先遍历背包target，再遍历物品nums[i]（内循环）</span><br>            <span class="hljs-keyword">if</span> (i &gt;= nums[j])<br>                dp[i] += dp[i-nums[j]];<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> dp[n];<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>刷题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>动态规划</tag>
+      
+      <tag>背包</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>377. 组合总和 Ⅳ</title>
     <link href="/2021/08/10/377-%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C-%E2%85%A3/"/>
     <url>/2021/08/10/377-%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C-%E2%85%A3/</url>

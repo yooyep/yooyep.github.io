@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>377. 组合总和 Ⅳ - yooyep&#39;s space</title>
+  <title>70. 爬楼梯 - yooyep&#39;s space</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="377. 组合总和 Ⅳ">
+            <span class="h2" id="subtitle" title="70. 爬楼梯">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-08-10 23:46" pubdate>
-        2021年8月10日 晚上
+      <time datetime="2021-08-11 23:48" pubdate>
+        2021年8月11日 晚上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      238 字
+      319 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      4
        分钟
     </span>
   
@@ -225,16 +225,16 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">377. 组合总和 Ⅳ</h1>
+            <h1 style="display: none">70. 爬楼梯</h1>
             
             <div class="markdown-body">
-              <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combination-sum-iv/">377. 组合总和 Ⅳ - 力扣（LeetCode）</a></p>
-<p><img src="/2021/08/10/377-%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C-%E2%85%A3/image-20210810234726503.png" srcset="/img/loading.gif" lazyload alt="image-20210810234726503"></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>完全背包问题，排列数</p>
-<p>​    个数可以不限使⽤，说明这是⼀个完全背包。<br>​    得到的集合是排列，说明需要考虑元素之间的顺序。  </p>
-<p><strong>如果求组合数就是外层for循环遍历物品，内层for遍历背包。</strong><br><strong>如果求排列数就是外层for遍历背包，内层for循环遍历物品。</strong>  </p>
-<p>如果把遍历nums（物品）放在外循环，遍历target的作为内循环的话，举⼀个例⼦：计算dp[4]的时<br>候，结果集只有 {1,3} 这样的集合，不会有{3,1}这样的集合，<strong>因为nums遍历放在外层， 3只能出现在1后</strong><br><strong>⾯！</strong></p>
-<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">combinationSum4</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span>[] dp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[target + <span class="hljs-number">1</span>];<br>    dp[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; target+<span class="hljs-number">1</span>; i++) &#123; <span class="hljs-comment">//遍历背包容量</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; nums.length; j++) &#123;<br>            <span class="hljs-keyword">if</span> (i &gt;= nums[j])<br>                dp[i] += dp[i-nums[j]];<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> dp[target];<br>&#125;<br></code></pre></td></tr></table></figure>
+              <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/climbing-stairs/">70. 爬楼梯 - 力扣（LeetCode）</a></p>
+<p><img src="/2021/08/11/70-%E7%88%AC%E6%A5%BC%E6%A2%AF/image-20210811235133640.png" srcset="/img/loading.gif" lazyload alt="image-20210811235133640"></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h3 id="递推公式"><a href="#递推公式" class="headerlink" title="递推公式"></a>递推公式</h3><p>f(n) = f(n-1) + f(n-2)</p>
+<h3 id="完全背包解法"><a href="#完全背包解法" class="headerlink" title="完全背包解法"></a>完全背包解法</h3><p>完全背包的写法：<br>i级台阶可以理解为容量为i的背包 总金额，跳1级、跳2级可以理解为硬币金额</p>
+<p>1.dp数组初始化：dp[i] i级台阶，有dp[i]种方法<br>2.递推公式，到达i级台阶，可以dp[i-1]、dp[i-2]<br>    dp[i] += dp[i-nums[j]]<br>3.初始化，dp[0]一定要是1，如果dp[0]是0的话，其他数值都是0了。<br>4.确定遍历顺序，<strong>排列问题</strong>，先跳1层台阶再跳2层台阶 和 先跳2层再跳1层 是两种<br>    因此先遍历背包target，再遍历物品nums[i]（内循环）<br>5.举例</p>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><h3 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">climbStairs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span>(n==<span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br><br>    <span class="hljs-keyword">int</span>[] dp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n + <span class="hljs-number">1</span>];<br>    dp[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>    dp[<span class="hljs-number">2</span>] = <span class="hljs-number">2</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">3</span>; i &lt; dp.length; i++) &#123;<br>        dp[i] = dp[i-<span class="hljs-number">1</span>] + dp[i-<span class="hljs-number">2</span>];<br>    &#125;<br>    <span class="hljs-keyword">return</span> dp[n];<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">climbStairs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span>[] dp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[n+<span class="hljs-number">1</span>];<br>    dp[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">int</span>[] nums = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>&#125;;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; nums.length; j++) &#123;<br>            <span class="hljs-comment">// 先遍历背包target，再遍历物品nums[i]（内循环）</span><br>            <span class="hljs-keyword">if</span> (i &gt;= nums[j])<br>                dp[i] += dp[i-nums[j]];<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> dp[n];<br>&#125;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -271,9 +271,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/08/11/70-%E7%88%AC%E6%A5%BC%E6%A2%AF/">
+                      <a href="/2021/08/12/279-%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">70. 爬楼梯</span>
+                        <span class="hidden-mobile">279. 完全平方数</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -281,8 +281,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/08/10/518-%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2-II/">
-                        <span class="hidden-mobile">518. 零钱兑换 II</span>
+                      <a href="/2021/08/10/377-%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C-%E2%85%A3/">
+                        <span class="hidden-mobile">377. 组合总和 Ⅳ</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
