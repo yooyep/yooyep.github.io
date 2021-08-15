@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>1488. 避免洪水泛滥</title>
+    <link href="/2021/08/15/1488-%E9%81%BF%E5%85%8D%E6%B4%AA%E6%B0%B4%E6%B3%9B%E6%BB%A5/"/>
+    <url>/2021/08/15/1488-%E9%81%BF%E5%85%8D%E6%B4%AA%E6%B0%B4%E6%B3%9B%E6%BB%A5/</url>
+    
+    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a href="https://leetcode-cn.com/problems/avoid-flood-in-the-city/">1488. 避免洪水泛滥 - 力扣（LeetCode）</a></p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs routeros">rains[i]=0，天晴，可以抽水； &gt;0，那个湖泊下雨<br>贪心策略：遇到天晴，先不抽水；<br>等有湖泊水满了，再抽水<br><br>map 记录某湖泊最近一次蓄满水的日期。<br><span class="hljs-builtin-name">set</span> 哪个湖泊满了，存放进<span class="hljs-builtin-name">set</span><br>treeSet 存可以抽水的日期，<br></code></pre></td></tr></table></figure><h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment">    rains[i]=0，天晴，可以抽水； &gt;0，那个湖泊下雨</span><br><span class="hljs-comment">    贪心策略：遇到天晴，先不抽水；</span><br><span class="hljs-comment">    等有湖泊水满了，再抽水</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    map 记录某湖泊最近一次蓄满水的日期。</span><br><span class="hljs-comment">    set 哪个湖泊满了，存放进set</span><br><span class="hljs-comment">    treeSet 存可以抽水的日期，</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span>[] avoidFlood(<span class="hljs-keyword">int</span>[] rains)&#123;<br>    <span class="hljs-keyword">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[rains.length];<br>    <span class="hljs-comment">// 初始化答案 -1</span><br>    Arrays.fill(res, -<span class="hljs-number">1</span>);<br>    HashMap&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br>    HashSet&lt;Integer&gt; set = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();<br>    TreeSet&lt;Integer&gt; tree = <span class="hljs-keyword">new</span> TreeSet&lt;&gt;();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; rains.length; i++) &#123;<br>        <span class="hljs-comment">//天晴，可以抽水，记录下来</span><br>        <span class="hljs-keyword">if</span> (rains[i] == <span class="hljs-number">0</span>)&#123;<br>            tree.add(i);<br>            res[i] = <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-comment">// 湖泊为空，先存水</span><br>        <span class="hljs-keyword">if</span> (!set.contains(rains[i]))&#123;<br>            set.add(rains[i]);<br>            map.put(rains[i], i); <span class="hljs-comment">//存放湖泊满的 日期</span><br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-comment">// 贪心：查找map 湖泊满的日期，找天晴的日子（天晴的日子 要比 湖泊满的日子 晚！）</span><br>        <span class="hljs-comment">// 返回大于e的最小元素；如果没有这样的元素，则返回null。</span><br>        Integer t = tree.higher(map.get(rains[i]));<br>        <span class="hljs-keyword">if</span> (t == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">0</span>]; <span class="hljs-comment">//洪水泛滥</span><br>        <span class="hljs-comment">//当前日期变更为该湖泊的最近满水日期</span><br>        map.put(rains[i] , i);<br>        res[t] = rains[i]; <span class="hljs-comment">//天晴这天，抽rain[i]湖泊</span><br>        tree.remove(t);<br><br>    &#125;<br><br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>刷题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>贪心</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>279. 完全平方数</title>
     <link href="/2021/08/12/279-%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/"/>
     <url>/2021/08/12/279-%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/</url>
