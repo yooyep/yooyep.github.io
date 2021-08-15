@@ -1536,13 +1536,13 @@ post-custom {
   font-weight: bold;
   color: var(--link-hover-color);
 }
-.tocbot-is-collapsed {
+/*.tocbot-is-collapsed {
   max-height: 0;
 }
 .tocbot-is-collapsible {
   overflow: hidden;
   transition: all 0.3s ease-in-out;
-}
+}*/
 @media (max-width: 1024px) {
   .toc-container {
     padding-left: 0;
