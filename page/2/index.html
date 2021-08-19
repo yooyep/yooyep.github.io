@@ -182,6 +182,118 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/08/02/%E3%80%90%E5%89%91%E6%8C%87%E3%80%9149-%E4%B8%91%E6%95%B0/" target="_self">
+          【剑指】49. 丑数
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/08/02/%E3%80%90%E5%89%91%E6%8C%87%E3%80%9149-%E4%B8%91%E6%95%B0/" target="_self">
+          
+          
+            
+          
+          题目剑指 Offer 49. 丑数 - 力扣（LeetCode）
+
+思路1、维护一个最小堆，下一个最小值就是堆顶元素。同时需要维护一个set，避免重复元素的加入。
+2、动态规划
+code思路一1234567891011121314151617181920public int nthUglyNumber(int n) &#123;    int[] nums = &#123;2,3,5&#125;;
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-08-02 23:38" pubdate>
+              2021-08-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+            
+              <a href="/tags/%E5%89%91%E6%8C%87/">剑指</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/08/02/%E3%80%90%E5%89%91%E6%8C%87%E3%80%9147-%E7%A4%BC%E7%89%A9%E7%9A%84%E6%9C%80%E5%A4%A7%E4%BB%B7%E5%80%BC/" target="_self">
+          【剑指】47. 礼物的最大价值
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/08/02/%E3%80%90%E5%89%91%E6%8C%87%E3%80%9147-%E7%A4%BC%E7%89%A9%E7%9A%84%E6%9C%80%E5%A4%A7%E4%BB%B7%E5%80%BC/" target="_self">
+          
+          
+            
+          
+          题目剑指 Offer 47. 礼物的最大价值 - 力扣（LeetCode）
+
+思路和题64. 最小路径和差不多，路径上选择最大价值的路径
+code一开始递推公式搞错了，没有加上grid [i] [j]
+12345678910111213141516171819202122232425262728public int maxValue(int[][] grid) &#123;    /*      
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-08-02 23:03" pubdate>
+              2021-08-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+            
+              <a href="/tags/%E5%89%91%E6%8C%87/">剑指</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/08/01/494-%E7%9B%AE%E6%A0%87%E5%92%8C/" target="_self">
           494. 目标和
         </a>
@@ -603,127 +715,6 @@ code12345678910111213141516171819202122232425262728293031323334public int[] sear
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/%E4%BA%8C%E5%88%86/">二分</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/18/343-%E6%95%B4%E6%95%B0%E6%8B%86%E5%88%86/" target="_self">
-          343. 整数拆分
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/18/343-%E6%95%B4%E6%95%B0%E6%8B%86%E5%88%86/" target="_self">
-          
-          
-            
-          
-          题目343. 整数拆分 - 力扣（LeetCode）
-
-思路问题是包含子问题的，要i拆分后乘积最大，比如拆分后有j，那么i乘积最大 一定包含j乘积最大 这个子问题；
-方法论：代码随想录
-1.确定dp数组以及下标的含义
-
-dp[i]为 数字i拆分后 乘积最大的值
-
-2.确定递推公式
-
-dp[i]最大乘积，拆分的时候，遍历1到j
-
-拆分出j，直接进行相乘 i-j * j
-拆分出j，将剩下的i-j进行拆
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-18 21:54" pubdate>
-              2021-07-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/18/63-%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84-II/" target="_self">
-          63. 不同路径 II
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/18/63-%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84-II/" target="_self">
-          
-          
-            
-          
-          题目63. 不同路径 II - 力扣（LeetCode）
-
-思路和62题 不同路径一样，只是添加了障碍物，
-在dp数组初始化 和 dp遍历的时候，关注有障碍物的情况即可。
-
-dp初始化的时候，在第一行、第一列的时候，有障碍物后面都是0；
-dp遍历的时候，有障碍物 dp应该为0；
-
-code1234567891011121314151617181920212223242526272829public
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-18 20:24" pubdate>
-              2021-07-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
             
           </div>
         

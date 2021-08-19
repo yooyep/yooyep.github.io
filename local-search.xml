@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>213. 打家劫舍 II</title>
+    <link href="/2021/08/19/213-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-II/"/>
+    <url>/2021/08/19/213-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-II/</url>
+    
+    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a href="https://leetcode-cn.com/problems/house-robber-ii/">213. 打家劫舍 II - 力扣（LeetCode）</a></p><p>首尾是相连的</p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs excel">因为是首尾相连的<br>    选了第<span class="hljs-number">1</span>个就无法选最后一个，就是[<span class="hljs-number">0</span>,<span class="hljs-built_in">n</span>)做动态规划<br>    选了最后一个就无法选第一个，就是(<span class="hljs-number">0</span>,<span class="hljs-built_in">n</span>]做动态规划<br></code></pre></td></tr></table></figure><h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">rob</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (nums.length == <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (nums.length == <span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">int</span> t1 = rob_range(nums, <span class="hljs-number">0</span>, nums.length - <span class="hljs-number">2</span>);<br>    <span class="hljs-keyword">int</span> t2 = rob_range(nums, <span class="hljs-number">1</span>, nums.length - <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">return</span> Math.max(t1,t2);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">rob_range</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> end)</span></span>&#123;<br>    <span class="hljs-comment">// 只有两个数的情况</span><br>    <span class="hljs-keyword">if</span> (start == end)<br>        <span class="hljs-keyword">return</span> nums[start];<br>    <span class="hljs-keyword">int</span>[] dp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[nums.length];<br><br>    dp[start] = nums[start];<br>    dp[start+<span class="hljs-number">1</span>] = Math.max(nums[start], nums[start+<span class="hljs-number">1</span>]);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = start+<span class="hljs-number">2</span>; i &lt;= end; i++) &#123;<br>        dp[i] = Math.max(dp[i-<span class="hljs-number">2</span>]+nums[i], dp[i-<span class="hljs-number">1</span>]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> dp[end];<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>刷题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>动态规划</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>198. 打家劫舍</title>
+    <link href="/2021/08/19/198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/"/>
+    <url>/2021/08/19/198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/</url>
+    
+    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a href="https://leetcode-cn.com/problems/house-robber/">198. 打家劫舍 - 力扣（LeetCode）</a></p><p><img src="/2021/08/19/198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/image-20210819224553118.png" alt="image-20210819224553118"></p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs inform7">1.dp定义<br>    dp<span class="hljs-comment">[i]</span> 到达第i个房间，能有的最大金额数<br>2.递推公式：到达方式，偷第i个房间，从间隔的房间过来/不偷第i个房间，从i-1过来<br>    dp<span class="hljs-comment">[i]</span> = max(dp<span class="hljs-comment">[i-2]</span>+nums<span class="hljs-comment">[i]</span>, dp<span class="hljs-comment">[i-1]</span>)<br>3.初始化<br>    dp<span class="hljs-comment">[0]</span>为nums<span class="hljs-comment">[0]</span>，dp<span class="hljs-comment">[1]</span>为n<span class="hljs-comment">[0]</span>和n<span class="hljs-comment">[1]</span>的较大值<br>4.遍历顺序：从前到后<br>5.举例：<br>    输入<span class="hljs-comment">[2,7,9,3,1]</span>；dp为<span class="hljs-comment">[2,7,11,11,12]</span><br></code></pre></td></tr></table></figure><h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">rob</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (nums.length == <span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">if</span> (nums.length == <span class="hljs-number">2</span>)<br>        <span class="hljs-keyword">return</span> Math.max(nums[<span class="hljs-number">0</span>], nums[<span class="hljs-number">1</span>]);<br>    <span class="hljs-keyword">int</span>[] dp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[nums.length];<br>    dp[<span class="hljs-number">0</span>] = nums[<span class="hljs-number">0</span>];<br>    dp[<span class="hljs-number">1</span>] = Math.max(nums[<span class="hljs-number">0</span>], nums[<span class="hljs-number">1</span>]);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt; nums.length; i++) &#123;<br>        dp[i] = Math.max(dp[i-<span class="hljs-number">2</span>]+nums[i], dp[i-<span class="hljs-number">1</span>]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> dp[nums.length-<span class="hljs-number">1</span>];<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>刷题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>动态规划</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>1488. 避免洪水泛滥</title>
     <link href="/2021/08/15/1488-%E9%81%BF%E5%85%8D%E6%B4%AA%E6%B0%B4%E6%B3%9B%E6%BB%A5/"/>
     <url>/2021/08/15/1488-%E9%81%BF%E5%85%8D%E6%B4%AA%E6%B0%B4%E6%B3%9B%E6%BB%A5/</url>
