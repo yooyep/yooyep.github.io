@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>122. 买卖股票的最佳时机 II</title>
+    <link href="/2021/08/21/122-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-II/"/>
+    <url>/2021/08/21/122-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-II/</url>
+    
+    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/">122. 买卖股票的最佳时机 II - 力扣（LeetCode）</a></p><p><img src="/2021/08/21/122-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-II/image-20210821223809328.png" alt="image-20210821223809328"></p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>可以多次买卖；</p><p>贪心的：利润是能分解的，每一天都追求正利润，局部最优就是整体最优。</p><h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">maxProfit</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] prices)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> res = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; prices.length; i++) &#123;<br>        res += Math.max(prices[i]-prices[i-<span class="hljs-number">1</span>], <span class="hljs-number">0</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>213. 打家劫舍 II</title>
     <link href="/2021/08/19/213-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-II/"/>
     <url>/2021/08/19/213-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-II/</url>
