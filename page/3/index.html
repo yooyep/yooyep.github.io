@@ -182,6 +182,112 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/07/20/75-%E9%A2%9C%E8%89%B2%E5%88%86%E7%B1%BB/" target="_self">
+          75. 颜色分类
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/07/20/75-%E9%A2%9C%E8%89%B2%E5%88%86%E7%B1%BB/" target="_self">
+          
+          
+            
+          
+          题目75. 颜色分类 - 力扣（LeetCode）
+
+思路1、统计颜色的各个频次即可。
+2、也可以两次遍历，0放前面，2放后面；1就自己在中间了；
+code12345678910111213141516171819202122public void sortColors(int[] nums) &#123;    int s1 = 0;    int s2 = 0;    int s3 = 0; 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-07-20 23:21" pubdate>
+              2021-07-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/07/20/64-%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/" target="_self">
+          64. 最小路径和
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/07/20/64-%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/" target="_self">
+          
+          
+            
+          
+          题目64. 最小路径和 - 力扣（LeetCode）
+
+思路1.确定dp数组以及下标的含义
+
+dp[i] [j]表示 走到i j位置的最小路径和
+
+2.确定递推公式
+
+dp[i] [j]可以有两种方式到达，向下移动、向右移动即dp[i-1] [j] 、 dp[i] [ j-1]，选择两种方式中较小的方式
+因此dp[i] [j] = min(dp[i-1] [j] + dp[i] [j-1]) + 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-07-20 23:21" pubdate>
+              2021-07-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/07/20/34-%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE/" target="_self">
           34. 在排序数组中查找元素的第一个和最后一个位置
         </a>
@@ -644,131 +750,11 @@ codebfs 层次遍历12345678910111213141516171819202122232425262728// 1. bfs、�
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/10/637-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/" target="_self">
-          637. 二叉树的层平均值
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/10/637-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/" target="_self">
-          
-          
-            
-          
-          题目637. 二叉树的层平均值 - 力扣（LeetCode）
-
-思路1、直观思路：bfs 层次遍历，计算每一层的平均值 即可。
-2、dfs 深度遍历，递归的时候维护每一个level的数量和总和
-code思路一12345678910111213141516171819202122232425262728// 1. 套用层次遍历的bfspublic List&lt;Double&gt; average
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-10 16:26" pubdate>
-              2021-07-10
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%A0%91/">树</a>
-            
-              <a href="/tags/bfs/">bfs</a>
-            
-              <a href="/tags/dfs/">dfs</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/07/%E3%80%90%E5%90%88%E9%9B%86%E3%80%91%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/" target="_self">
-          【合集】二叉树的遍历
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/07/%E3%80%90%E5%90%88%E9%9B%86%E3%80%91%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/" target="_self">
-          
-          
-            
-          
-          链接参考：
-[leetcode]一套拳法👊刷掉n个遍历树的问题
-labuladong的关于二叉树的网址
-代码随想录 二叉树：总结篇！（需要掌握的二叉树技能都在这里了）
-二叉树的遍历⼆叉树主要有两种遍历⽅式：
-
-深度优先遍历：先往深⾛，遇到叶⼦节点再往回⾛。（前序、中序、后序 都有递归法、迭代法）
-⼴度优先遍历：⼀层⼀层的去遍历。（层次遍历）
-
-
-
-94. 二叉树的中序遍历递归写法：
-123456
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-07 21:25" pubdate>
-              2021-07-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%A0%91/">树</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
