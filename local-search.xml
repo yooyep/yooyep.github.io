@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>617. 合并二叉树\</title>
+    <link href="/2021/08/30/617-%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <url>/2021/08/30/617-%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    
+    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a href="https://leetcode-cn.com/problems/merge-two-binary-trees/">617. 合并二叉树 - 力扣（LeetCode）</a></p><p><img src="/2021/08/30/617-%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/image-20210830232751191.png" alt="image-20210830232751191"></p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h3 id="dfs"><a href="#dfs" class="headerlink" title="dfs"></a>dfs</h3><p>深度优先搜索：</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-number">1</span>.递归函数 参数和返回值：<br>    root1、root2两颗子树<br><span class="hljs-number">2</span>.终止条件<br>    root1、root2为<span class="hljs-literal">null</span><br><span class="hljs-number">3</span>.每层的逻辑<br>    将两个子树相加<br></code></pre></td></tr></table></figure><h3 id="bfs"><a href="#bfs" class="headerlink" title="bfs"></a>bfs</h3><p>广度优先遍历，类似于层次遍历</p><h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><h3 id="dfs-1"><a href="#dfs-1" class="headerlink" title="dfs"></a>dfs</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> TreeNode <span class="hljs-title">mergeTrees</span><span class="hljs-params">(TreeNode root1, TreeNode root2)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (root1 == <span class="hljs-keyword">null</span>)<br>        <span class="hljs-keyword">return</span> root2;<br>    <span class="hljs-keyword">if</span> (root2 == <span class="hljs-keyword">null</span>)<br>        <span class="hljs-keyword">return</span> root1;<br>    root1.val += root2.val;<br>    root1.left = mergeTrees(root1.left, root2.left);<br>    root1.right = mergeTrees(root1.right, root2.right);<br>    <span class="hljs-keyword">return</span> root1;<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="bfs-1"><a href="#bfs-1" class="headerlink" title="bfs"></a>bfs</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment">        广度优先遍历，bfs</span><br><span class="hljs-comment">     */</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> TreeNode <span class="hljs-title">mergeTrees2</span><span class="hljs-params">(TreeNode root1, TreeNode root2)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (root1 == <span class="hljs-keyword">null</span>)<br>        <span class="hljs-keyword">return</span> root2;<br>    <span class="hljs-keyword">if</span> (root2 == <span class="hljs-keyword">null</span>)<br>        <span class="hljs-keyword">return</span> root1;<br>    TreeNode merged = <span class="hljs-keyword">new</span> TreeNode(root1.val + root2.val);<br>    LinkedList&lt;TreeNode&gt; queue = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();<br>    LinkedList&lt;TreeNode&gt; queue1 = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();<br>    LinkedList&lt;TreeNode&gt; queue2 = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();<br>    queue.add(merged);<br>    queue1.add(root1);<br>    queue2.add(root2);<br>    <span class="hljs-comment">// 两棵树，这一层，有任意一个节点都继续。</span><br>    <span class="hljs-keyword">while</span> (!queue1.isEmpty() &amp;&amp; !queue2.isEmpty()) &#123;<br>        TreeNode node = queue.poll();<br>        TreeNode node1 = queue1.poll();<br>        TreeNode node2 = queue2.poll();<br>        <span class="hljs-comment">// 遍历这一层的节点</span><br>        TreeNode left1 = node1.left;<br>        TreeNode left2 = node2.left;<br>        TreeNode right1 = node1.right;<br>        TreeNode right2 = node2.right;<br>        <span class="hljs-keyword">if</span> (left1!=<span class="hljs-keyword">null</span> &amp;&amp; left2!=<span class="hljs-keyword">null</span>)&#123;<br>            node.left = <span class="hljs-keyword">new</span> TreeNode(left1.val + left2.val);<br>            queue.add(node.left);<br>            queue1.add(left1);<br>            queue2.add(left2);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (left1 != <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-comment">// 如果另一棵子树是null，就使用当前子树，不用两颗子树相加了</span><br>            node.left = left1;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (left2 != <span class="hljs-keyword">null</span>) &#123;<br>            node.left = left2;<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (right1!=<span class="hljs-keyword">null</span> &amp;&amp; right2!=<span class="hljs-keyword">null</span>)&#123;<br>            node.right = <span class="hljs-keyword">new</span> TreeNode(right1.val + right2.val);<br>            queue.add(node.right);<br>            queue1.add(right1);<br>            queue2.add(right2);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (right1 != <span class="hljs-keyword">null</span>) &#123;<br>            node.right = right1;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (right2 != <span class="hljs-keyword">null</span>) &#123;<br>            node.right = right2;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> merged;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>刷题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>树</tag>
+      
+      <tag>dfs</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>647. 回文子串</title>
     <link href="/2021/08/28/647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/"/>
     <url>/2021/08/28/647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/</url>
@@ -872,7 +899,7 @@
       
       <tag>树</tag>
       
-      <tag>递归</tag>
+      <tag>dfs</tag>
       
     </tags>
     
