@@ -182,6 +182,240 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/07/18/63-%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84-II/" target="_self">
+          63. 不同路径 II
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/07/18/63-%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84-II/" target="_self">
+          
+          
+            
+          
+          题目63. 不同路径 II - 力扣（LeetCode）
+
+思路和62题 不同路径一样，只是添加了障碍物，
+在dp数组初始化 和 dp遍历的时候，关注有障碍物的情况即可。
+
+dp初始化的时候，在第一行、第一列的时候，有障碍物后面都是0；
+dp遍历的时候，有障碍物 dp应该为0；
+
+code1234567891011121314151617181920212223242526272829public
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-07-18 20:24" pubdate>
+              2021-07-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/07/18/62-%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/" target="_self">
+          62. 不同路径
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/07/18/62-%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/" target="_self">
+          
+          
+            
+          
+          题目62. 不同路径 - 力扣（LeetCode）
+
+思路也可以递归的写，但是会超时
+123456789101112class Solution &#123;private:int dfs(int i, int j, int m, int n) &#123;if (i &gt; m || j &gt; n) return 0; // 越界了if (i == m &amp;&amp; j == n)
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-07-18 18:06" pubdate>
+              2021-07-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/07/18/53-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/" target="_self">
+          53. 最大子序和
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/07/18/53-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/" target="_self">
+          
+          
+            
+          
+          题目53. 最大子序和 - 力扣（LeetCode）
+
+思路方法论：代码随想录
+1.确定dp数组以及下标的含义
+
+dp[i]为 [0,i]下标的最大连续子序和
+
+2.确定递推公式
+
+dp[i]可以有两种方式到达
+
+nums[i]是正数有增益、可以加入之前的子序列 dp[i-1] + nums[i]；
+不加入前面的子序列，从头开始算子序列（前面dp为负，当前nums[i]为负）
+
+因此dp[i] =
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-07-18 16:51" pubdate>
+              2021-07-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/07/18/746-%E4%BD%BF%E7%94%A8%E6%9C%80%E5%B0%8F%E8%8A%B1%E8%B4%B9%E7%88%AC%E6%A5%BC%E6%A2%AF/" target="_self">
+          746. 使用最小花费爬楼梯
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/07/18/746-%E4%BD%BF%E7%94%A8%E6%9C%80%E5%B0%8F%E8%8A%B1%E8%B4%B9%E7%88%AC%E6%A5%BC%E6%A2%AF/" target="_self">
+          
+          
+            
+          
+          题目746. 使用最小花费爬楼梯 - 力扣（LeetCode）
+
+思路这道题的描述比较奇怪。
+例子1：
+可以理解为一开始站在cost为15的台阶，调到20后面的台阶。一开始站在15的台阶，花费体力为0，起跳到台阶顶才花费体力15；（关乎到dp数组的定义）我倾向这种
+也可以理解为站在上面就花费了15体力，跳到台阶顶不花费体力。
+方法论：代码随想录
+1.确定dp数组以及下标的含义
+
+dp[i]为到达第
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-07-18 16:18" pubdate>
+              2021-07-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/07/13/%E3%80%90%E5%89%91%E6%8C%87%E3%80%9168-II-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" target="_self">
           【剑指】68 - II. 二叉树的最近公共祖先
         </a>
@@ -514,218 +748,6 @@ code123456789101112131415class Solution &#123;    public TreeNode convertBST(Tre
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/%E6%A0%91/">树</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/07/230-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%AC%ACK%E5%B0%8F%E7%9A%84%E5%85%83%E7%B4%A0/" target="_self">
-          230. 二叉搜索树中第K小的元素
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/07/230-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%AC%ACK%E5%B0%8F%E7%9A%84%E5%85%83%E7%B4%A0/" target="_self">
-          
-          
-            
-          
-          题目230. 二叉搜索树中第K小的元素 - 力扣（LeetCode）
-给定一个二叉搜索树的根节点 root ，和一个整数 k ，请你设计一个算法查找其中第 k 个最小元素（从 1 开始计数）。
-思路二叉搜索树
-​    对于每个node来说，左子树的节点值都比node值要小，右子树的节点值都比node值要大。
-因此，BST 的中序遍历结果是升序的。
-1234567void traverse(Tre
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-07 19:57" pubdate>
-              2021-07-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%A0%91/">树</a>
-            
-              <a href="/tags/dfs/">dfs</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/07/Java-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" target="_self">
-          Java 代理模式
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/07/Java-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" target="_self">
-          
-          
-            
-          
-          参考：
-Java三种代理模式：静态代理、动态代理和cglib代理 - SegmentFault 思否
-Java进阶 | Proxy动态代理机制详解
-JDK动态代理-超详细源码分析_mob604756f61e6c的技术博客_51CTO博客
-一、代理模式代理模式给一个目标对象提供一个代理对象，并由代理对象持有目标对象的引用。可以通过代理对象访问目标对象，可以在不改变目标对象的基础上，提供额外的功能。
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-07 16:23" pubdate>
-              2021-07-07
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/02/143-%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8/" target="_self">
-          143. 重排链表
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/02/143-%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8/" target="_self">
-          
-          
-            
-          
-          题目143. 重排链表 - 力扣（LeetCode）
-给定一个单链表 L：L0→L1→…→L**n-1→Ln ，将其重新排列后变为： L0→L**n→L1→L**n-1→L2→L**n-2→…
-你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
-1234示例 1:给定链表 1-&gt;2-&gt;3-&gt;4, 重新排列为 1-&gt;4-&gt;2-&gt;3.示例 2:给定链表 
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-02 19:36" pubdate>
-              2021-07-02
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E9%93%BE%E8%A1%A8/">链表</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/01/%E3%80%90%E5%89%91%E6%8C%87%E3%80%9156-I-%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/" target="_self">
-          【剑指】56 - I. 数组中数字出现的次数
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/01/%E3%80%90%E5%89%91%E6%8C%87%E3%80%9156-I-%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/" target="_self">
-          
-          
-            
-          
-          题目剑指 Offer 56 - I. 数组中数字出现的次数 - 力扣（LeetCode）
-一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)。
-1234567示例 1：输入：nums = [4,1,4,6]输出：[1,6] 或 [6,1]示例 2：输入：nums = [1,2,10,4,1,4,3,3]
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-01 10:02" pubdate>
-              2021-07-01
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%89%91%E6%8C%87/">剑指</a>
-            
-              <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</a>
             
           </div>
         

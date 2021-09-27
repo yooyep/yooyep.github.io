@@ -182,6 +182,220 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/08/19/198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/" target="_self">
+          198. 打家劫舍
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/08/19/198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/" target="_self">
+          
+          
+            
+          
+          题目198. 打家劫舍 - 力扣（LeetCode）
+
+思路1234567891.dp定义    dp[i] 到达第i个房间，能有的最大金额数2.递推公式：到达方式，偷第i个房间，从间隔的房间过来/不偷第i个房间，从i-1过来    dp[i] = max(dp[i-2]+nums[i], dp[i-1])3.初始化    dp[0]为nums[0]，dp[1]为n[0]和n[1]的较大值4.遍历
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-08-19 22:42" pubdate>
+              2021-08-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/08/15/1488-%E9%81%BF%E5%85%8D%E6%B4%AA%E6%B0%B4%E6%B3%9B%E6%BB%A5/" target="_self">
+          1488. 避免洪水泛滥
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/08/15/1488-%E9%81%BF%E5%85%8D%E6%B4%AA%E6%B0%B4%E6%B3%9B%E6%BB%A5/" target="_self">
+          
+          
+            
+          
+          题目1488. 避免洪水泛滥 - 力扣（LeetCode）
+思路1234567rains[i]=0，天晴，可以抽水； &gt;0，那个湖泊下雨贪心策略：遇到天晴，先不抽水；等有湖泊水满了，再抽水map 记录某湖泊最近一次蓄满水的日期。set 哪个湖泊满了，存放进settreeSet 存可以抽水的日期，
+code12345678910111213141516171819202122232425262
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-08-15 18:20" pubdate>
+              2021-08-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%B4%AA%E5%BF%83/">贪心</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/08/12/279-%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/" target="_self">
+          279. 完全平方数
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/08/12/279-%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/" target="_self">
+          
+          
+            
+          
+          题目279. 完全平方数 - 力扣（LeetCode）
+
+思路12345671.dp定义，dp[i] 组成i的最少数量2.递推公式，dp[j]有两种方式，添加一个平方数 或者 不添加    dp[j] = min(dp[j], dp[j - i*i] + 1)3.初始化，dp[0]应该为0，因为dp[1]是1；非0的位置，初始化为最大值4.遍历顺序，完全背包问题，因为求最小数量，不管是排列还是组合
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-08-12 00:09" pubdate>
+              2021-08-12
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+            
+              <a href="/tags/%E8%83%8C%E5%8C%85/">背包</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/08/11/70-%E7%88%AC%E6%A5%BC%E6%A2%AF/" target="_self">
+          70. 爬楼梯
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/08/11/70-%E7%88%AC%E6%A5%BC%E6%A2%AF/" target="_self">
+          
+          
+            
+          
+          题目70. 爬楼梯 - 力扣（LeetCode）
+
+思路递推公式f(n) = f(n-1) + f(n-2)
+完全背包解法完全背包的写法：i级台阶可以理解为容量为i的背包 总金额，跳1级、跳2级可以理解为硬币金额
+1.dp数组初始化：dp[i] i级台阶，有dp[i]种方法2.递推公式，到达i级台阶，可以dp[i-1]、dp[i-2]    dp[i] += dp[i-nums[j]]3.初始化，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-08-11 23:48" pubdate>
+              2021-08-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+            
+              <a href="/tags/%E8%83%8C%E5%8C%85/">背包</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/08/10/377-%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C-%E2%85%A3/" target="_self">
           377. 组合总和 Ⅳ
         </a>
@@ -497,232 +711,6 @@ code思路一1234567891011121314151617181920public int nthUglyNumber(int n) &#12
               <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
             
               <a href="/tags/%E5%89%91%E6%8C%87/">剑指</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/08/02/%E3%80%90%E5%89%91%E6%8C%87%E3%80%9147-%E7%A4%BC%E7%89%A9%E7%9A%84%E6%9C%80%E5%A4%A7%E4%BB%B7%E5%80%BC/" target="_self">
-          【剑指】47. 礼物的最大价值
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/08/02/%E3%80%90%E5%89%91%E6%8C%87%E3%80%9147-%E7%A4%BC%E7%89%A9%E7%9A%84%E6%9C%80%E5%A4%A7%E4%BB%B7%E5%80%BC/" target="_self">
-          
-          
-            
-          
-          题目剑指 Offer 47. 礼物的最大价值 - 力扣（LeetCode）
-
-思路和题64. 最小路径和差不多，路径上选择最大价值的路径
-code一开始递推公式搞错了，没有加上grid [i] [j]
-12345678910111213141516171819202122232425262728public int maxValue(int[][] grid) &#123;    /*      
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-08-02 23:03" pubdate>
-              2021-08-02
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
-            
-              <a href="/tags/%E5%89%91%E6%8C%87/">剑指</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/08/01/494-%E7%9B%AE%E6%A0%87%E5%92%8C/" target="_self">
-          494. 目标和
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/08/01/494-%E7%9B%AE%E6%A0%87%E5%92%8C/" target="_self">
-          
-          
-            
-          
-          题目494. 目标和 - 力扣（LeetCode）
-
-思路1、直观思路，回溯，暴力搜索
-1234就像二叉树的遍历DFS、看过的二叉树的递归逻辑1.确定递推返回值和参数2.终止条件3.单层遍历逻辑
-2、动态规划
-和石子均分两堆差不多，+号一堆，-号一堆，如果总重量分别是x、y的话，那么
-12x+y = sumx-y = target
-就可以知道x = (sum+target)/2，容量为x的背包，能
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-08-01 23:34" pubdate>
-              2021-08-01
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
-            
-              <a href="/tags/%E5%9B%9E%E6%BA%AF/">回溯</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/08/01/1049-%E6%9C%80%E5%90%8E%E4%B8%80%E5%9D%97%E7%9F%B3%E5%A4%B4%E7%9A%84%E9%87%8D%E9%87%8F-II/" target="_self">
-          1049. 最后一块石头的重量 II
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/08/01/1049-%E6%9C%80%E5%90%8E%E4%B8%80%E5%9D%97%E7%9F%B3%E5%A4%B4%E7%9A%84%E9%87%8D%E9%87%8F-II/" target="_self">
-          
-          
-            
-          
-          题目1049. 最后一块石头的重量 II - 力扣（LeetCode）
-
-思路和416. 分割等和子集 - 力扣（LeetCode）思路差不多。
-code12345678910111213141516171819202122/*        递归，将石子分成重量相差不多的两堆即可，相减即可。        背包容量为target，看最多能塞多少重量石头；     */public static 
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-08-01 23:15" pubdate>
-              2021-08-01
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
-            
-              <a href="/tags/%E8%83%8C%E5%8C%85/">背包</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/28/77-%E7%BB%84%E5%90%88/" target="_self">
-          77. 组合
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/28/77-%E7%BB%84%E5%90%88/" target="_self">
-          
-          
-            
-          
-          题目77. 组合 - 力扣（LeetCode）
-
-思路
-「代码随想录」带你学透回溯算法！【77. 组合】 - 组合 - 力扣（LeetCode）
-
-回溯模板
-123456789101112void backtracking(参数) &#123;    if (终止条件) &#123;        存放结果;        return;    &#125;    for (选择：本层集合中元素（
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-28 09:06" pubdate>
-              2021-07-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%9B%9E%E6%BA%AF/">回溯</a>
             
           </div>
         

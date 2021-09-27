@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>122. 买卖股票的最佳时机 II - yooyep&#39;s space</title>
+  <title>121. 买卖股票的最佳时机 - yooyep&#39;s space</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="122. 买卖股票的最佳时机 II">
+            <span class="h2" id="subtitle" title="121. 买卖股票的最佳时机">
               
             </span>
 
@@ -173,7 +173,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-08-21 22:37" pubdate>
+      <time datetime="2021-08-21 21:31" pubdate>
         2021年8月21日 晚上
       </time>
     </span>
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      85 字
+      641 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      9
        分钟
     </span>
   
@@ -225,20 +225,43 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">122. 买卖股票的最佳时机 II</h1>
+            <h1 style="display: none">121. 买卖股票的最佳时机</h1>
             
             <div class="markdown-body">
-              <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/">122. 买卖股票的最佳时机 II - 力扣（LeetCode）</a></p>
-<p><img src="/2021/08/21/122-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-II/image-20210821223809328.png" srcset="/img/loading.gif" lazyload alt="image-20210821223809328"></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>可以多次买卖；</p>
-<p>贪心的：利润是能分解的，每一天都追求正利润，局部最优就是整体最优。</p>
-<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">maxProfit</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] prices)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> res = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; prices.length; i++) &#123;<br>        res += Math.max(prices[i]-prices[i-<span class="hljs-number">1</span>], <span class="hljs-number">0</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
+              <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">121. 买卖股票的最佳时机 - 力扣（LeetCode）</a></p>
+<p><img src="/2021/08/21/121-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/image-20210821213159302.png" srcset="/img/loading.gif" lazyload alt="image-20210821213159302"></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h3 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h3><p>因为股票就买卖一次，那么贪心的想法很自然就是取最左最小值，取最右最大值，那么得到的差值就是最大利润。</p>
+<h3 id="直观思路"><a href="#直观思路" class="headerlink" title="直观思路"></a>直观思路</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-number">1</span>.定义：<span class="hljs-keyword">dp</span>[i]，第i天买卖股票获取的最大利润<br><span class="hljs-number">2</span>.递推公式：第i天不卖股票/卖股票（选择卖股票，一定是减去之前的最低价才是最大利润）<br>    <span class="hljs-keyword">dp</span>[i] = <span class="hljs-built_in">max</span>(<span class="hljs-keyword">dp</span>[i-<span class="hljs-number">1</span>], price[i] - <span class="hljs-built_in">min</span>)<br><span class="hljs-number">3</span>.初始划：<span class="hljs-keyword">dp</span>[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span><br><span class="hljs-number">4</span>.遍历顺序<br><span class="hljs-number">5</span>.举例<br></code></pre></td></tr></table></figure>
+<h3 id="随想录的"><a href="#随想录的" class="headerlink" title="随想录的"></a>随想录的</h3><p><img src="/2021/08/21/121-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/image-20210821214130046.png" srcset="/img/loading.gif" lazyload alt="image-20210821214130046"></p>
+<p>3.初始化，由递归公式，需要知道dp[0] [0]和dp [0] [1]</p>
+<p>​    dp[0] [0]为第0天持有股票的最多现金，即买入股票为price [0]；<br>​    dp [0] [1]为第0天不持有股票的最多现金，即0；</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs inform7">dp<span class="hljs-comment">[i]</span><span class="hljs-comment">[0]</span> = max(dp<span class="hljs-comment">[i - 1]</span><span class="hljs-comment">[0]</span>, -prices<span class="hljs-comment">[i]</span>);<br>dp<span class="hljs-comment">[i]</span><span class="hljs-comment">[1]</span> = max(dp<span class="hljs-comment">[i - 1]</span><span class="hljs-comment">[1]</span>, prices<span class="hljs-comment">[i]</span> + dp<span class="hljs-comment">[i - 1]</span><span class="hljs-comment">[0]</span>);<br></code></pre></td></tr></table></figure>
+<p>4.遍历顺序，从签到后<br>5.举例</p>
+<p>​    直观的理解dp [i] [0]为买的最少股价；dp [i] [1]为卖出后能挣到的钱</p>
+<p><img src="/2021/08/21/121-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/image-20210821214746628.png" srcset="/img/loading.gif" lazyload alt="image-20210821214746628"></p>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><h3 id="贪心-1"><a href="#贪心-1" class="headerlink" title="贪心"></a>贪心</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">maxProfit</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] prices)</span> </span>&#123;<br>        <span class="hljs-comment">//首先定义最低价格和最大利润两个变量</span><br>        <span class="hljs-keyword">int</span> minPrice = prices[<span class="hljs-number">0</span>];<br>        <span class="hljs-keyword">int</span> maxProfit = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt; prices.length;i++)&#123;<br>            <span class="hljs-comment">//将最低价格和当前价格比较，低的为新的最低价格</span><br>            minPrice = Math.min(prices[i],minPrice);<br>            <span class="hljs-comment">//将当前价格减去最低价格的值与最大利润比较，高的为新的最大利润</span><br>            maxProfit = Math.max(prices[i] - minPrice,maxProfit);<br>        &#125;<br>        <span class="hljs-comment">//返回最大利润</span><br>        <span class="hljs-keyword">return</span> maxProfit;<br>    &#125;<br><br>作者：lan-ch<br>链接：https:<span class="hljs-comment">//leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/121-mai-mai-gu-piao-de-zui-jia-shi-ji-ta-5xfw/</span><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<br></code></pre></td></tr></table></figure>
+<h3 id="直观的"><a href="#直观的" class="headerlink" title="直观的"></a>直观的</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">maxProfit</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] prices)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span>[] dp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[prices.length];<br>    <span class="hljs-keyword">int</span> min = prices[<span class="hljs-number">0</span>]; <span class="hljs-comment">//截止第i天 最小的股价</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; prices.length; i++) &#123;<br>        min = Math.min(prices[i], min);<br>        dp[i] = Math.max(dp[i-<span class="hljs-number">1</span>], prices[i] - min);<br>    &#125;<br>    <span class="hljs-comment">// 从头到尾，找最大利润</span><br>    <span class="hljs-keyword">int</span> max = Integer.MIN_VALUE;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; dp.length; i++) &#123;<br>        <span class="hljs-keyword">if</span> (max &lt; dp[i])<br>            max = dp[i];<br>    &#125;<br>    <span class="hljs-keyword">return</span> max;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="随想录"><a href="#随想录" class="headerlink" title="随想录"></a>随想录</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">maxProfit2</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] prices)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span>[][] dp = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[prices.length][<span class="hljs-number">2</span>];<br>    dp[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = -prices[<span class="hljs-number">0</span>];<br>    dp[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; prices.length; i++) &#123;<br>        dp[i][<span class="hljs-number">0</span>] = Math.max(dp[i-<span class="hljs-number">1</span>][<span class="hljs-number">0</span>], -prices[i]);<br>        <span class="hljs-comment">// 不持有股票的最大收益：保持原状 / 第i天卖出股票</span><br>        dp[i][<span class="hljs-number">1</span>] = Math.max(dp[i-<span class="hljs-number">1</span>][<span class="hljs-number">1</span>], prices[i] + dp[i-<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]);<br>    &#125;<br>    <span class="hljs-keyword">return</span> dp[prices.length - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>];<br>&#125;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+                    
+                  </div>
                 
               </div>
               
@@ -253,9 +276,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/08/28/5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/">
+                      <a href="/2021/08/21/122-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA-II/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">5. 最长回文子串</span>
+                        <span class="hidden-mobile">122. 买卖股票的最佳时机 II</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -263,8 +286,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/08/21/121-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/">
-                        <span class="hidden-mobile">121. 买卖股票的最佳时机</span>
+                      <a href="/2021/08/19/213-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-II/">
+                        <span class="hidden-mobile">213. 打家劫舍 II</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
