@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grand Luxury Tree Final v2</title>
+    <title>merry</title>
     <style>
         body { margin: 0; overflow: hidden; background-color: #000000; font-family: 'Times New Roman', serif; }
         #canvas-container { width: 100vw; height: 100vh; position: absolute; top: 0; left: 0; z-index: 1; }
@@ -16,12 +16,6 @@
             align-items: center;
             padding-top: 40px;
             box-sizing: border-box;
-        }
-        
-        /* When hidden class is applied to specific elements */
-        .ui-hidden {
-            opacity: 0;
-            pointer-events: none !important;
         }
 
         /* Loading */
@@ -54,37 +48,76 @@
             transition: opacity 0.5s ease;
         }
 
-        /* Button - Restored & Elegant */
+        /* Button - 隐藏按钮 */
         .btn-wrapper {
             margin-top: 20px;
             pointer-events: auto;
             text-align: center;
             transition: opacity 0.5s ease;
+            display: none; /* 隐藏按钮 */
         }
-        .action-btn {
-            background: rgba(20, 20, 20, 0.6); 
-            border: 1px solid rgba(212, 175, 55, 0.4); 
-            color: #d4af37; 
-            padding: 10px 25px; 
-            cursor: pointer; 
-            text-transform: uppercase; 
-            letter-spacing: 3px; 
-            font-size: 10px;
-            transition: all 0.4s;
-            display: inline-block;
+
+        /* Audio Controls and Gesture Hints */
+        #audio-controls {
+            position: absolute; bottom: 20px; left: 20px;
+            z-index: 20; opacity: 0.7;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        #audio-controls:hover {
+            opacity: 1;
+        }
+        #music-toggle {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.6);
+            color: #d4af37;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 12px;
+            border-radius: 4px;
             backdrop-filter: blur(5px);
+            font-family: 'Times New Roman', serif;
+            white-space: nowrap;
         }
-        .action-btn:hover { 
-            background: #d4af37; 
-            color: #000; 
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        #music-toggle:hover {
+            background: rgba(212, 175, 55, 0.2);
         }
-        .hint-text {
-            color: rgba(212, 175, 55, 0.5);
-            font-size: 9px;
-            margin-top: 8px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+
+        /* Gesture Hints Container */
+        #gesture-hints {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 4px;
+            padding: 10px 15px;
+            backdrop-filter: blur(5px);
+            min-width: 180px;
+        }
+
+        /* Gesture Hint Items */
+        .gesture-item {
+            display: flex;
+            align-items: center;
+            margin: 3px 0;
+            font-size: 11px;
+            color: rgba(212, 175, 55, 0.8);
+            line-height: 1.3;
+        }
+
+        .gesture-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .gesture-text {
+            flex: 1;
         }
 
         /* Webcam feedback */
@@ -122,12 +155,38 @@
 
     <div id="ui-layer">
         <h1>Merry Christmas</h1>
-        
-        <div class="btn-wrapper">
-            <button id="add-photo-btn" class="action-btn">
-                Add Holiday Photos
-            </button>
-            <div class="hint-text">Press 'H' to Hide Controls</div>
+    </div>
+
+    <!-- Audio Player - 替换这里为你的音乐文件 -->
+    <audio id="background-music" loop>
+        <!-- ================================ -->
+        <!-- 请将下面的src替换为你的音乐文件链接 -->
+        <!-- 支持MP3、WAV、OGG等格式 -->
+        <source src="https://assets.mixkit.co/music/691/691.mp3" type="audio/mpeg">
+        <!-- ================================ -->
+        您的浏览器不支持音频元素。
+    </audio>
+
+    <!-- 音乐控制按钮和手势提示 -->
+    <div id="audio-controls">
+        <button id="music-toggle">🎵 Music: On</button>
+        <div id="gesture-hints">
+            <div class="gesture-item">
+                <div class="gesture-icon">👊</div>
+                <div class="gesture-text">握拳 - 圣诞树形态</div>
+            </div>
+            <div class="gesture-item">
+                <div class="gesture-icon">🖐️</div>
+                <div class="gesture-text">张开五指 - 散开形态</div>
+            </div>
+            <div class="gesture-item">
+                <div class="gesture-icon">🤲</div>
+                <div class="gesture-text">手掌旋转 - 旋转画面</div>
+            </div>
+            <div class="gesture-item">
+                <div class="gesture-icon">🤏</div>
+                <div class="gesture-text">指尖捏合 - 放大照片</div>
+            </div>
         </div>
     </div>
 
@@ -165,17 +224,38 @@
             }
         };
 
-        // 默认照片链接数组
-        const DEFAULT_PHOTO_URLS = [
-            'https://images.unsplash.com/photo-1570913199992-91d07c140e7a?w=512&h=512&fit=crop&q=80',
-            'https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=512&h=512&fit=crop&q=80',
-            'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=512&h=512&fit=crop&q=80',
-            'https://images.unsplash.com/photo-1482517557869-d4f90560c7a7?w=512&h=512&fit=crop&q=80',
-            'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=512&h=512&fit=crop&q=80',
-            'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=512&h=512&fit=crop&q=80',
-            'https://images.unsplash.com/photo-1514866747592-c872b7db8e9b?w=512&h=512&fit=crop&q=80',
-            'https://images.unsplash.com/photo-1575470881519-7b30cef5dbd4?w=512&h=512&fit=crop&q=80'
+        // 本地图片路径 - 假设images文件夹中有photo1.jpg到photo12.jpg
+        // 你可以根据实际情况修改文件名
+        const LOCAL_PHOTO_PATHS = [
+            'images/1.jpeg',
+            'images/2.jpeg',
+            'images/3.jpeg',
+            'images/4.jpeg',
+            'images/5.jpg',
+            'images/6.jpg'
         ];
+
+        // 从本地图片中随机选择一些显示（避免文件不存在导致错误）
+        const DEFAULT_PHOTO_URLS = [];
+        
+        // 预加载图片，确保文件存在
+        function preloadImages() {
+            const loadedImages = [];
+            
+            LOCAL_PHOTO_PATHS.forEach((path, index) => {
+                const img = new Image();
+                img.onload = () => {
+                    console.log(`图片加载成功: ${path}`);
+                    loadedImages.push(path);
+                };
+                img.onerror = () => {
+                    console.log(`图片加载失败，跳过: ${path}`);
+                };
+                img.src = path;
+            });
+            
+            return loadedImages;
+        }
 
         const STATE = {
             mode: 'TREE', 
@@ -192,6 +272,10 @@
         let photoMeshGroup = new THREE.Group();
         let handLandmarker, video, webcamCanvas, webcamCtx;
         let caneTexture; 
+        let backgroundMusic;
+        let musicEnabled = true;
+        let hasUserInteracted = false;
+        let availablePhotoPaths = []; // 存储实际可用的图片路径
 
         async function init() {
             initThree();
@@ -199,10 +283,20 @@
             setupLights();
             createTextures();
             createParticles(); 
-            createDust();     
+            createDust();
+            
+            // 预加载本地图片
+            await loadLocalPhotos();
             createDefaultPhotos();
+            
             setupPostProcessing();
             setupEvents();
+            
+            // 初始化音乐（延迟加载）
+            setTimeout(() => {
+                initMusic();
+            }, 1000);
+            
             await initMediaPipe();
             
             const loader = document.getElementById('loader');
@@ -210,6 +304,40 @@
             setTimeout(() => loader.remove(), 800);
 
             animate();
+        }
+
+        // 加载本地图片
+        async function loadLocalPhotos() {
+            console.log("开始加载本地图片...");
+            
+            // 创建一个Promise数组来检查哪些图片可用
+            const checkPromises = LOCAL_PHOTO_PATHS.map(path => {
+                return new Promise((resolve) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        console.log(`找到图片: ${path}`);
+                        resolve(path);
+                    };
+                    img.onerror = () => {
+                        console.log(`未找到图片: ${path}`);
+                        resolve(null);
+                    };
+                    img.src = path;
+                });
+            });
+            
+            const results = await Promise.all(checkPromises);
+            availablePhotoPaths = results.filter(path => path !== null);
+            
+            if (availablePhotoPaths.length === 0) {
+                console.warn("未找到任何本地图片，将使用默认图片");
+                // 如果没有本地图片，使用默认的在线图片作为后备
+                availablePhotoPaths = [
+                    'images/photo1.jpg', // 即使没有也尝试一下
+                ];
+            } else {
+                console.log(`成功加载 ${availablePhotoPaths.length} 张图片`);
+            }
         }
 
         function initThree() {
@@ -466,58 +594,110 @@
         }
 
         function createDefaultPhotos() {
+            // 创建1080*1440比例(3:4)的默认图片
             const canvas = document.createElement('canvas');
-            canvas.width = 512; canvas.height = 512;
+            canvas.width = 1080;
+            canvas.height = 1440;
             const ctx = canvas.getContext('2d');
-            ctx.fillStyle = '#050505'; ctx.fillRect(0,0,512,512);
-            ctx.strokeStyle = '#eebb66'; ctx.lineWidth = 15; ctx.strokeRect(20,20,472,472);
-            ctx.font = '500 60px Times New Roman'; ctx.fillStyle = '#eebb66';
-            ctx.textAlign = 'center'; 
-            ctx.fillText("JOYEUX", 256, 230);
-            ctx.fillText("NOEL", 256, 300);
+            
+            // 背景渐变
+            const gradient = ctx.createLinearGradient(0, 0, 0, 1440);
+            gradient.addColorStop(0, '#03180a');
+            gradient.addColorStop(1, '#050505');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 1080, 1440);
+            
+            // 金色边框
+            ctx.strokeStyle = '#d4af37';
+            ctx.lineWidth = 40;
+            ctx.strokeRect(60, 60, 960, 1320);
+            
+            // 圣诞祝福文字
+            ctx.font = 'bold 100px "Times New Roman", serif';
+            ctx.fillStyle = '#eebb66';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            ctx.fillText("JOYEUX", 540, 500);
+            ctx.fillText("NOËL", 540, 650);
+            ctx.fillText("2024", 540, 800);
+            
+            // 添加小装饰
+            ctx.font = 'italic 60px "Times New Roman", serif';
+            ctx.fillStyle = 'rgba(212, 175, 55, 0.7)';
+            ctx.fillText("Merry Christmas", 540, 1000);
             
             const tex = new THREE.CanvasTexture(canvas);
             tex.colorSpace = THREE.SRGBColorSpace;
             addPhotoToScene(tex);
             
-            // 初始化时添加一些默认照片
-            addRandomDefaultPhoto();
-            setTimeout(() => addRandomDefaultPhoto(), 500);
-            setTimeout(() => addRandomDefaultPhoto(), 1000);
+            // 初始化时添加一些本地照片
+            const numPhotosToAdd = Math.min(4, availablePhotoPaths.length);
+            for(let i = 0; i < numPhotosToAdd; i++) {
+                setTimeout(() => addRandomLocalPhoto(), i * 500);
+            }
         }
         
-        function addRandomDefaultPhoto() {
-            const randomIndex = Math.floor(Math.random() * DEFAULT_PHOTO_URLS.length);
-            const url = DEFAULT_PHOTO_URLS[randomIndex];
-            addPhotoFromURL(url);
+        function addRandomLocalPhoto() {
+            if (availablePhotoPaths.length === 0) {
+                console.log("没有可用的本地图片");
+                return;
+            }
+            
+            const randomIndex = Math.floor(Math.random() * availablePhotoPaths.length);
+            const path = availablePhotoPaths[randomIndex];
+            addPhotoFromLocalPath(path);
         }
         
-        function addPhotoFromURL(url) {
-            new THREE.TextureLoader().load(url, (texture) => {
-                texture.colorSpace = THREE.SRGBColorSpace;
-                addPhotoToScene(texture);
-            }, undefined, (err) => {
-                console.error('Error loading image from URL:', url, err);
-                // 如果加载失败，创建一个简单的替代纹理
-                createFallbackTexture();
-            });
+        function addPhotoFromLocalPath(path) {
+            const loader = new THREE.TextureLoader();
+            loader.load(
+                path, 
+                (texture) => {
+                    console.log(`成功加载本地图片: ${path}`);
+                    texture.colorSpace = THREE.SRGBColorSpace;
+                    addPhotoToScene(texture);
+                },
+                undefined, 
+                (err) => {
+                    console.error(`加载本地图片失败: ${path}`, err);
+                    // 如果加载失败，从列表中移除这个路径
+                    const index = availablePhotoPaths.indexOf(path);
+                    if (index > -1) {
+                        availablePhotoPaths.splice(index, 1);
+                    }
+                    createFallbackTexture();
+                }
+            );
         }
         
         function createFallbackTexture() {
             const canvas = document.createElement('canvas');
-            canvas.width = 512; canvas.height = 512;
+            canvas.width = 1080;
+            canvas.height = 1440;
             const ctx = canvas.getContext('2d');
             const colors = ['#d4af37', '#990000', '#03180a', '#ffd966'];
             const color = colors[Math.floor(Math.random() * colors.length)];
             
-            ctx.fillStyle = color + '20';
-            ctx.fillRect(0, 0, 512, 512);
+            // 背景渐变
+            const gradient = ctx.createLinearGradient(0, 0, 0, 1440);
+            gradient.addColorStop(0, color + '40');
+            gradient.addColorStop(1, '#050505');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 1080, 1440);
+            
+            // 边框
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 30;
+            ctx.strokeRect(60, 60, 960, 1320);
+            
+            // 文字
             ctx.fillStyle = color;
-            ctx.font = 'bold 40px Times New Roman';
+            ctx.font = 'bold 80px Times New Roman';
             ctx.textAlign = 'center';
-            ctx.fillText('Holiday', 256, 200);
-            ctx.fillText('Memory', 256, 250);
-            ctx.fillText('2024', 256, 300);
+            ctx.fillText('Holiday', 540, 500);
+            ctx.fillText('Memory', 540, 650);
+            ctx.fillText('🎄', 540, 850);
             
             const tex = new THREE.CanvasTexture(canvas);
             tex.colorSpace = THREE.SRGBColorSpace;
@@ -525,24 +705,109 @@
         }
 
         function addPhotoToScene(texture) {
-            const frameGeo = new THREE.BoxGeometry(1.4, 1.4, 0.05);
-            const frameMat = new THREE.MeshStandardMaterial({ color: CONFIG.colors.champagneGold, metalness: 1.0, roughness: 0.1 });
+            // 1080*1440 比例 (3:4 = 0.75)
+            const photoWidth = 1.2; // 保持宽度不变
+            const photoHeight = photoWidth * (1440 / 1080); // 计算高度: 1.2 * (1440/1080) = 1.6
+            
+            // 相框尺寸（比照片稍大）
+            const frameWidth = photoWidth * 1.1;
+            const frameHeight = photoHeight * 1.1;
+            
+            // 创建相框
+            const frameGeo = new THREE.BoxGeometry(frameWidth, frameHeight, 0.05);
+            const frameMat = new THREE.MeshStandardMaterial({ 
+                color: CONFIG.colors.champagneGold, 
+                metalness: 1.0, 
+                roughness: 0.1 
+            });
             const frame = new THREE.Mesh(frameGeo, frameMat);
 
-            const photoGeo = new THREE.PlaneGeometry(1.2, 1.2);
+            // 创建照片（使用正确的比例）
+            const photoGeo = new THREE.PlaneGeometry(photoWidth, photoHeight);
             const photoMat = new THREE.MeshBasicMaterial({ map: texture });
             const photo = new THREE.Mesh(photoGeo, photoMat);
             photo.position.z = 0.04;
 
+            // 组合
             const group = new THREE.Group();
             group.add(frame);
             group.add(photo);
             
+            // 缩放
             const s = 0.8;
-            group.scale.set(s,s,s);
+            group.scale.set(s, s, s);
             
             photoMeshGroup.add(group);
             particleSystem.push(new Particle(group, 'PHOTO', false));
+        }
+
+        // --- 音乐控制 ---
+        function initMusic() {
+            backgroundMusic = document.getElementById('background-music');
+            const musicToggle = document.getElementById('music-toggle');
+            
+            // 设置音乐属性
+            backgroundMusic.volume = 0.6; // 音量设置
+            
+            // 尝试自动播放音乐
+            function tryAutoPlay() {
+                if (!hasUserInteracted) {
+                    const playPromise = backgroundMusic.play();
+                    
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            console.log('音乐自动播放成功');
+                        }).catch(error => {
+                            console.log('音乐自动播放被阻止，等待用户交互');
+                            // 显示提示
+                            musicToggle.innerHTML = '🎵 播放音乐';
+                            musicToggle.style.background = 'rgba(150, 0, 0, 0.8)';
+                        });
+                    }
+                }
+            }
+            
+            // 页面加载后尝试播放音乐
+            setTimeout(tryAutoPlay, 1500);
+            
+            // 监听页面点击事件，用于触发音乐播放
+            document.addEventListener('click', function userInteraction() {
+                if (!hasUserInteracted) {
+                    hasUserInteracted = true;
+                    backgroundMusic.play().then(() => {
+                        console.log('用户交互后音乐播放成功');
+                        musicToggle.innerHTML = '🎵 Music: On';
+                        musicToggle.style.background = 'rgba(20, 20, 20, 0.8)';
+                    }).catch(error => {
+                        console.log('用户交互后音乐播放失败:', error);
+                    });
+                    
+                    // 移除事件监听器，避免重复触发
+                    document.removeEventListener('click', userInteraction);
+                }
+            });
+            
+            // 音乐开关
+            musicToggle.addEventListener('click', function() {
+                if (musicEnabled) {
+                    backgroundMusic.pause();
+                    musicToggle.innerHTML = '🎵 Music: Off';
+                    musicToggle.style.color = '#888';
+                } else {
+                    backgroundMusic.play();
+                    musicToggle.innerHTML = '🎵 Music: On';
+                    musicToggle.style.color = '#d4af37';
+                }
+                musicEnabled = !musicEnabled;
+            });
+            
+            // 空格键切换音乐
+            document.addEventListener('keydown', (e) => {
+                if (e.code === 'Space') {
+                    e.preventDefault();
+                    musicToggle.click();
+                }
+            });
         }
 
         // --- MEDIAPIPE ---
@@ -623,24 +888,22 @@
                 composer.setSize(window.innerWidth, window.innerHeight);
             });
             
-            // 添加照片按钮事件
-            document.getElementById('add-photo-btn').addEventListener('click', () => {
-                addRandomDefaultPhoto();
-                // 添加视觉反馈
-                const btn = document.getElementById('add-photo-btn');
-                btn.style.background = '#d4af37';
-                btn.style.color = '#000';
-                setTimeout(() => {
-                    btn.style.background = '';
-                    btn.style.color = '';
-                }, 300);
-            });
-            
-            // Toggle UI logic - ONLY hide controls, keep title
+            // H键隐藏/显示音乐控制面板和手势提示
             window.addEventListener('keydown', (e) => {
                 if (e.key.toLowerCase() === 'h') {
-                    const controls = document.querySelector('.btn-wrapper');
-                    if (controls) controls.classList.toggle('ui-hidden');
+                    const controls = document.querySelector('#audio-controls');
+                    if (controls) {
+                        if (controls.style.opacity === '0') {
+                            controls.style.opacity = '0.7';
+                        } else {
+                            controls.style.opacity = '0';
+                        }
+                    }
+                }
+                
+                // M键也可以控制音乐
+                if (e.key.toLowerCase() === 'm') {
+                    document.getElementById('music-toggle').click();
                 }
             });
         }
